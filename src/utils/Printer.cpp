@@ -5,3 +5,8 @@ void Printer::printStartupMessage()
 {
     std::cout << "Task Manager Strating...." << "\n";
 }
+
+void Printer::printMessage(const std::string &message)
+{
+    std::cout << message << "\n";
+}
