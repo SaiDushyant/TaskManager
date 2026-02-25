@@ -1,0 +1,16 @@
+# Build folders
+build/
+bin/
+out/
+
+# Executables
+*.out
+*.exe
+task_manager
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+
+# OS
+.DS_Store

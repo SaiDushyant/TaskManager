@@ -1,7 +1,8 @@
-#include <iostream>
+#include "utils/Printer.h"
 
 int main()
 {
-    std::cout << "Task Manager Starting..." << "\n";
+    Printer printer;
+    printer.printStartupMessage();
     return 0;
 }
