@@ -3,7 +3,7 @@
 
 void Printer::printStartupMessage()
 {
-    std::cout << "Task Manager Strating...." << "\n";
+    std::cout << "Task Manager Starting...." << "\n";
 }
 
 void Printer::printMessage(const std::string &message)
