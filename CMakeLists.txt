@@ -11,12 +11,13 @@ add_library(models
 
 target_include_directories(models PUBLIC include)
 
-# UTILS
-add_library(utils
-    src/utils/Printer.cpp
+# CORE
+add_library(core
+    src/core/FileTaskRepository.cpp
 )
 
-target_include_directories(utils PUBLIC include)
+target_include_directories(core PUBLIC include)
+target_link_libraries(core models)
 
 # SERVICES
 add_library(services
@@ -24,7 +25,14 @@ add_library(services
 )
 
 target_include_directories(services PUBLIC include)
-target_link_libraries(services models)
+target_link_libraries(services models core)
+
+# UTILS
+add_library(utils
+    src/utils/Printer.cpp
+)
+
+target_include_directories(utils PUBLIC include)
 
 # EXECUTABLE
 add_executable(task_manager main.cpp)
