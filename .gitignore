@@ -1,19 +1,28 @@
-# Build folders
+# Build directories
 build/
 bin/
 out/
 
-# Executables
-*.out
-*.exe
-task_manager
-
-# CMake
+# CMake files
 CMakeFiles/
 CMakeCache.txt
-
-# OS
-.DS_Store
+cmake_install.cmake
+Makefile
+compile_commands.json
 
 # Object files
 *.o
+*.obj
+
+# Executables
+*.out
+*.exe
+*.app
+task_manager
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# VSCode
+.vscode/
