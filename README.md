@@ -65,15 +65,28 @@ TaskManager
 
 ## Build Steps
 
-git clone `<your-repo-url>`{=html} cd TaskManager
+### Clone the repository
 
-mkdir build cd build
+```bash
+git clone https://github.com/SaiDushyant/TaskManager.git
+cd TaskManager
+```
 
-cmake .. make
+### Build the project
 
-Run the program:
+```bash
+mkdir build
+cd build
+cmake ..
+make
+```
 
+### Run the program
+
+```bash
 ./task_manager
+```
+
 
 ------------------------------------------------------------------------
 
@@ -88,7 +101,10 @@ Run the program:
 
 ### Add a Task
 
-Enter choice: 2 Enter task title: Study C++ Task added
+Enter choice: 2 
+Enter task title: Study C++ 
+
+Task added
 
 ### List Tasks
 
@@ -98,13 +114,15 @@ Enter choice: 1
 
 ### Complete a Task
 
-Enter choice: 3 Enter task id: 1
+Enter choice: 3 
+Enter task id: 1
 
 Task marked completed
 
 ### Delete a Task
 
-Enter choice: 4 Enter task id: 1
+Enter choice: 4 
+Enter task id: 1
 
 Task deleted
 
