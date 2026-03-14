@@ -26,12 +26,32 @@ application development
 
 # Project Structure
 
-TaskManager │ ├── include │ ├── core │ │ └── FileTaskRepository.h │ ├──
-models │ │ └── Task.h │ ├── services │ │ └── TaskService.h │ └── utils │
-└── Printer.h │ ├── src │ ├── core │ │ └── FileTaskRepository.cpp │ ├──
-models │ │ └── Task.cpp │ ├── services │ │ └── TaskService.cpp │ └──
-utils │ └── Printer.cpp │ ├── build ├── main.cpp ├── CMakeLists.txt └──
-README.md
+```
+TaskManager
+├── include
+│   ├── core
+│   │   └── FileTaskRepository.h
+│   ├── models
+│   │   └── Task.h
+│   ├── services
+│   │   └── TaskService.h
+│   └── utils
+│       └── Printer.h
+│
+├── src
+│   ├── core
+│   │   └── FileTaskRepository.cpp
+│   ├── models
+│   │   └── Task.cpp
+│   ├── services
+│   │   └── TaskService.cpp
+│   └── utils
+│       └── Printer.cpp
+│
+├── CMakeLists.txt
+├── main.cpp
+└── README.md
+```
 
 ------------------------------------------------------------------------
 
@@ -59,8 +79,12 @@ Run the program:
 
 # Example CLI Usage
 
-===== Task Manager ===== 1. List Tasks 2. Add Task 3. Complete Task 4.
-Delete Task 5. Exit
+===== Task Manager ===== 
+1. List Tasks
+2. Add Task
+3. Complete Task
+4. Delete Task
+5. Exit
 
 ### Add a Task
 
@@ -104,21 +128,32 @@ Where: - 0 → Pending - 1 → Completed
 
 ------------------------------------------------------------------------
 
-# Design Architecture
+## Design Architecture
 
 The project follows a **layered architecture**:
 
-CLI (main.cpp) ↓ Service Layer (TaskService) ↓ Repository Layer
-(FileTaskRepository) ↓ Model Layer (Task)
+```
+CLI (main.cpp)
+      │
+      ▼
+TaskService
+      │
+      ▼
+FileTaskRepository
+      │
+      ▼
+Task Model
+```
 
-Responsibilities:
+### Layer Responsibilities
 
-  Layer        Responsibility
-  ------------ ------------------
-  CLI          User interaction
-  Service      Business logic
-  Repository   File storage
-  Model        Task data
+| Layer      | Responsibility   |
+| ---------- | ---------------- |
+| CLI        | User interaction |
+| Service    | Business logic   |
+| Repository | File storage     |
+| Model      | Task data        |
+
 
 ------------------------------------------------------------------------
 
