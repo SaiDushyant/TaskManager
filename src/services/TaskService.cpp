@@ -2,6 +2,7 @@
 #include "models/Task.h"
 #include <iostream>
 #include <algorithm>
+#include <cctype>
 
 TaskService::TaskService()
 {
@@ -100,7 +101,9 @@ void TaskService::editTask(int id, const std::string &newTitle)
 
 std::string toLower(std::string str)
 {
-    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+    std::transform(str.begin(), str.end(), str.begin(),
+                   [](unsigned char c)
+                   { return std::tolower(c); });
     return str;
 }
 
@@ -110,7 +113,7 @@ std::vector<Task> TaskService::searchTasks(const std::string &keyword) const
 
     std::string lowerKeyWord = toLower(keyword);
 
-    for (auto task : tasks)
+    for (const auto &task : tasks)
     {
         if (toLower(task.getTitle()).find(lowerKeyWord) != std::string::npos)
         {
