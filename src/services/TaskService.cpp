@@ -1,6 +1,7 @@
 #include "services/TaskService.h"
 #include "models/Task.h"
 #include <iostream>
+#include <algorithm>
 
 TaskService::TaskService()
 {
@@ -80,4 +81,42 @@ void TaskService::deleteTask(int id)
             return;
         }
     }
+}
+
+void TaskService::editTask(int id, const std::string &newTitle)
+{
+    for (auto &task : tasks)
+    {
+        if (task.getId() == id)
+        {
+            task.setTitle(newTitle);
+            repository.saveTask(tasks);
+            return;
+        }
+    }
+
+    std::cout << "Task not Found!!\n";
+}
+
+std::string toLower(std::string str)
+{
+    std::transform(str.begin(), str.end(), str.begin(), ::tolower);
+    return str;
+}
+
+std::vector<Task> TaskService::searchTasks(const std::string &keyword) const
+{
+    std::vector<Task> result;
+
+    std::string lowerKeyWord = toLower(keyword);
+
+    for (auto task : tasks)
+    {
+        if (toLower(task.getTitle()).find(lowerKeyWord) != std::string::npos)
+        {
+            result.push_back(task);
+        }
+    }
+
+    return result;
 }

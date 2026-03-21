@@ -21,3 +21,8 @@ void Task::markCompleted()
 {
     completed = true;
 }
+
+void Task::setTitle(const std::string &newTitle)
+{
+    title = newTitle;
+}

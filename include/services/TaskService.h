@@ -20,6 +20,8 @@ public:
     void markTaskCompleted(int id);
     void listTasks() const;
     void deleteTask(int id);
+    void editTask(int id, const std::string &newTitle);
+    std::vector<Task> searchTasks(const std::string &keyword) const;
 };
 
 #endif

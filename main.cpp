@@ -19,6 +19,7 @@ int main()
         std::cout << "3. Complete Task\n";
         std::cout << "4. Delete Task\n";
         std::cout << "5. Exit\n";
+        std::cout << "6. Search\n";
         std::cout << "Enter choice: ";
 
         std::cin >> choice;
@@ -62,6 +63,31 @@ int main()
         {
             std::cout << "Goodbye!\n";
             break;
+        }
+        else if (choice == 6)
+        {
+            std::cin.ignore();
+            std::string keyword;
+
+            std::cout << "Enter search keyword: ";
+            std::getline(std::cin, keyword);
+
+            auto results = service.searchTasks(keyword);
+
+            if (results.empty())
+            {
+                std::cout << "No matching tasks found\n";
+            }
+            else
+            {
+                for (const auto &task : results)
+                {
+                    std::cout << "[" << task.getId() << "] "
+                              << task.getTitle()
+                              << (task.isCompleted() ? " (Completed)" : " (Pending)")
+                              << "\n";
+                }
+            }
         }
         else
         {
