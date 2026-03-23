@@ -1,7 +1,8 @@
 #ifndef TASKSERVICE_H
 #define TASKSERVICE_H
 
-#include "core/FileTaskRepository.h"
+// #include "core/FileTaskRepository.h"
+#include "core/SqliteTaskRepository.h"
 #include <vector>
 
 class Task;
@@ -10,7 +11,8 @@ class TaskService
 {
 private:
     std::vector<Task> tasks;
-    FileTaskRepository repository;
+    // FileTaskRepository repository;
+    SqliteTaskRepository repository;
     int getNextTaskId() const;
 
 public:

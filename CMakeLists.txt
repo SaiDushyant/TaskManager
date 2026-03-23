@@ -14,6 +14,7 @@ target_include_directories(models PUBLIC include)
 # CORE
 add_library(core
     src/core/FileTaskRepository.cpp
+    src/core/SqliteTaskRepository.cpp
 )
 
 target_include_directories(core PUBLIC include)
@@ -40,4 +41,11 @@ add_executable(task_manager main.cpp)
 target_link_libraries(task_manager
     services
     utils
+)
+
+find_package(SQLite3 REQUIRED)
+
+target_link_libraries(core
+    models
+    SQLite::SQLite3
 )

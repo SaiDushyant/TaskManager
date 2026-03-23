@@ -6,7 +6,7 @@
 
 TaskService::TaskService()
 {
-    tasks = repository.loadTasks();
+    tasks = repository.getAllTasks();
 }
 
 int TaskService::getNextTaskId() const
@@ -32,7 +32,7 @@ void TaskService::addTask(const std::string &title)
 
     tasks.push_back(task);
 
-    repository.saveTask(tasks);
+    repository.addTask(task);
 }
 
 Task *TaskService::getTaskById(int id)
@@ -55,6 +55,7 @@ void TaskService::markTaskCompleted(int id)
     if (task)
     {
         task->markCompleted();
+        repository.updateTask(*task);
     }
 }
 
@@ -78,7 +79,7 @@ void TaskService::deleteTask(int id)
         if (it->getId() == id)
         {
             tasks.erase(it);
-            repository.saveTask(tasks);
+            repository.deleteTask(id);
             return;
         }
     }
@@ -91,7 +92,7 @@ void TaskService::editTask(int id, const std::string &newTitle)
         if (task.getId() == id)
         {
             task.setTitle(newTitle);
-            repository.saveTask(tasks);
+            repository.updateTask(task);
             return;
         }
     }
